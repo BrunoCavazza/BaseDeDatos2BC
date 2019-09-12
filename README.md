@@ -197,15 +197,7 @@ FROM inventory
 
 WHERE inventory_id NOT IN (SELECT inventory_id
 
-FROM inventory
-
-    INNER JOIN rental USING (inventory_id)
-
-    WHERE return_date IS NULL)
-
-# inventory id to use: 10
-
-# film id to use: 2
+FROM inventory INNER JOIN rental USING (inventory_id) WHERE return_date IS NULL)
 
 INSERT INTO sakila.rental
 
